@@ -6,12 +6,12 @@ const img = document.querySelector(".img");
 const getImage = async function () { //The async keyword enables asynchronous communication between my program and the API.
     const res = await fetch ("https://picsum.photos/v2/list?limit=100"); //The await keyword tells the program to wait on that line in the function until the API data are received.
     const images = await res.json(); //Calling the .json() method on the 'res' response transforms the JSON data into a proper JavaScript object, which can then be used in my code. Since calling .json() on the response is an asynchronous action, use the await keyword.
-    console.log(images);
+    //console.log(images);
     selectRandomImage(images);
 };
 
 const selectRandomImage = function (images) {
-    const randomIndex = Math.floor(Math.random()*images.length);
+    const randomIndex = Math.floor(Math.random() * images.length);
     //console.log(randomIndex);
     const randomImage = images[randomIndex];
     //console.log(randomImage);
@@ -27,5 +27,5 @@ const displayImage = function (randomImage) {
 };
 
 button.addEventListener("click", function () {
-    getImage(); //This program won't retrieve API data until the button is clicked.
+    getImage();
 });
